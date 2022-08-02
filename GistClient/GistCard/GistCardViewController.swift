@@ -1,24 +1,24 @@
 //
-//  GistListViewController.swift
-//  NNN
+//  GistCardViewController.swift
+//  GistClient
 //
-//  Created by Tanya Petrenko on 31.07.2022.
+//  Created by Tanya Petrenko on 02.08.2022.
 //
 
 import UIKit
 import SnapKit
 
-protocol GistListViewControllerOutput: AnyObject {
+protocol GistCardViewControllerOutput: AnyObject {
 
-    func updateItems(_ items: [GistListItem])
+    func updateItems(_ items: [FileListItem])
     func updateState(_ state: ListDataState)
-    func present(_ viewControllerToPresent: UIViewController, animated flag: Bool)
+
 }
 
-class GistListViewController: UIViewController {
+class GistCardViewController: UIViewController {
 
-    private var gists: [GistListItem] = []
-    var presenter: GistListInput?
+    private var files: [FileListItem] = []
+    var presenter: GistCardInput?
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
@@ -44,7 +44,6 @@ class GistListViewController: UIViewController {
 
         view.addSubview(collectionView)
         view.addSubview(activityIndicatorView)
-
         collectionView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.bottom.equalToSuperview()
@@ -53,16 +52,12 @@ class GistListViewController: UIViewController {
             $0.center.equalToSuperview()
         }
 
-        collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(GistListItemCollectionViewCell.self, forCellWithReuseIdentifier: .gistListItemReuseIdentifier)
+        collectionView.register(FileCollectionViewCell.self, forCellWithReuseIdentifier: .fileItemReuseIdentifier)
         collectionView.register(EmptyCollectionViewCell.self, forCellWithReuseIdentifier: .emptyCellReuseIdentifier)
-
         view.backgroundColor = .white
 
-        title = "Gists List"
-
-        presenter?.getGitListItem()
+        presenter?.getFiles()
     }
 
     private func createLayout() -> UICollectionViewLayout {
@@ -77,7 +72,7 @@ class GistListViewController: UIViewController {
             preferredStyle: .alert)
 
         let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
-            self.presenter?.getGitListItem()
+            self.presenter?.getFiles()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
@@ -89,42 +84,10 @@ class GistListViewController: UIViewController {
 
 }
 
-extension GistListViewController: UICollectionViewDataSource {
+extension GistCardViewController: GistCardViewControllerOutput {
 
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        gists.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let gist = gists[indexPath.item]
-        guard let cell = collectionView
-            .dequeueReusableCell(
-                withReuseIdentifier: .gistListItemReuseIdentifier,
-                for: indexPath) as? GistListItemCollectionViewCell
-        else { return EmptyCollectionViewCell() }
-        
-        cell.configure(with: gist)
-        return cell
-    }
-
-}
-
-extension GistListViewController: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView,
-                        didSelectItemAt indexPath: IndexPath) {
-        let selectedGist = gists[indexPath.item]
-        presenter?.didTapGist(selectedGist)
-    }
-
-}
-
-extension GistListViewController: GistListViewControllerOutput {
-
-    func updateItems(_ items: [GistListItem]) {
-        gists = items
+    func updateItems(_ items: [FileListItem]) {
+        files = items
         collectionView.reloadData()
     }
 
@@ -141,13 +104,30 @@ extension GistListViewController: GistListViewControllerOutput {
         }
     }
 
-    func present(_ viewControllerToPresent: UIViewController, animated flag: Bool) {
-        navigationController?.pushViewController(viewControllerToPresent, animated: flag)
+}
+
+extension GistCardViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        files.count
     }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let file = files[indexPath.item]
+        guard let cell = collectionView
+            .dequeueReusableCell(
+                withReuseIdentifier: .fileItemReuseIdentifier,
+                for: indexPath) as? FileCollectionViewCell
+        else { return EmptyCollectionViewCell() }
+
+        cell.configure(with: file)
+        return cell
+    }
+
 }
 
 extension String {
-    static let gistListItemReuseIdentifier = "GistListItemCollectionViewCell"
-    static let emptyCellReuseIdentifier = "emptyCellReuseIdentifier"
+    static let fileItemReuseIdentifier = "FileCollectionViewCell"
 }
-

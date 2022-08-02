@@ -46,4 +46,34 @@ class NetworkService {
         }
     }
 
+    func getFileContentRawString(url: URL, completion: @escaping (Result<String, Error>) -> Void) {
+        DispatchQueue.global().async {
+
+            let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                    return
+                }
+
+                guard
+                    let data = data,
+                    let rawString = String(data: data, encoding: .ascii)
+                else {
+                    DispatchQueue.main.async {
+                        completion(.failure(GistError.empty))
+                    }
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    completion(.success(rawString))
+                }
+            }
+            task.resume()
+
+        }
+    }
+
 }

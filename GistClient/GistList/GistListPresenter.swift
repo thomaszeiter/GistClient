@@ -11,6 +11,7 @@ import UIKit
 protocol GistListInput: AnyObject {
 
     func getGitListItem()
+    func didTapGist(_ gist: GistListItem)
 
 }
 
@@ -18,6 +19,7 @@ class GistListPresenter {
 
     private let networkService = NetworkService()
     private weak var viewController: GistListViewControllerOutput?
+    private var gists: [Gist] = []
 
     init(viewController: GistListViewControllerOutput) {
         self.viewController = viewController
@@ -68,10 +70,19 @@ extension GistListPresenter: GistListInput {
             case .success(let gists):
                 self.viewController?.updateState(.normal)
                 self.viewController?.updateItems(self.makeGistListItems(from: gists))
+                self.gists = gists
             case .failure(let error):
                 self.viewController?.updateState(.error(message: error.localizedDescription))
             }
         }
+    }
+
+    func didTapGist(_ gist: GistListItem) {
+        guard let gist = gists.first(where: { $0.id == gist.id }) else { return }
+        let gistCardViewController = GistCardViewController()
+        let gistCardPresenter = GistCardPresenter(viewController: gistCardViewController, files: gist.files)
+        gistCardViewController.presenter = gistCardPresenter
+        viewController?.present(gistCardViewController, animated: true)
     }
 
 }

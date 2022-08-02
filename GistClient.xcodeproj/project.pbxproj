@@ -23,6 +23,10 @@
 		EC8B361828982C7400F01FD1 /* GistListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B361728982C7400F01FD1 /* GistListPresenter.swift */; };
 		EC8B361A2898348A00F01FD1 /* ListDataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B36192898348A00F01FD1 /* ListDataState.swift */; };
 		EC8B362128992DC100F01FD1 /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362028992DC100F01FD1 /* URL+StaticString.swift */; };
+		EC8B36242899363F00F01FD1 /* GistCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B36232899363F00F01FD1 /* GistCardViewController.swift */; };
+		EC8B362628993CD400F01FD1 /* FileListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362528993CD400F01FD1 /* FileListItem.swift */; };
+		EC8B362A28993D8400F01FD1 /* FileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362928993D8400F01FD1 /* FileCollectionViewCell.swift */; };
+		EC8B362C28993EE800F01FD1 /* GistCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362B28993EE800F01FD1 /* GistCardPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		EC8B361728982C7400F01FD1 /* GistListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListPresenter.swift; sourceTree = "<group>"; };
 		EC8B36192898348A00F01FD1 /* ListDataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataState.swift; sourceTree = "<group>"; };
 		EC8B362028992DC100F01FD1 /* URL+StaticString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+StaticString.swift"; sourceTree = "<group>"; };
+		EC8B36232899363F00F01FD1 /* GistCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCardViewController.swift; sourceTree = "<group>"; };
+		EC8B362528993CD400F01FD1 /* FileListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListItem.swift; sourceTree = "<group>"; };
+		EC8B362928993D8400F01FD1 /* FileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC8B362B28993EE800F01FD1 /* GistCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCardPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 				EC8B35EE2896B51E00F01FD1 /* AppDelegate.swift */,
 				EC8B35F02896B51E00F01FD1 /* SceneDelegate.swift */,
 				EC8B361D2899297400F01FD1 /* Extentions */,
+				EC8B36222899361E00F01FD1 /* GistCard */,
 				EC8B36042897EB5F00F01FD1 /* GistList */,
 				EC8B361F28992C9100F01FD1 /* SupportingFiles */,
 			);
@@ -141,6 +150,33 @@
 				EC8B35FC2896B52200F01FD1 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		EC8B36222899361E00F01FD1 /* GistCard */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B362828993D6200F01FD1 /* Cells */,
+				EC8B362728993CD700F01FD1 /* Models */,
+				EC8B36232899363F00F01FD1 /* GistCardViewController.swift */,
+				EC8B362B28993EE800F01FD1 /* GistCardPresenter.swift */,
+			);
+			path = GistCard;
+			sourceTree = "<group>";
+		};
+		EC8B362728993CD700F01FD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B362528993CD400F01FD1 /* FileListItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC8B362828993D6200F01FD1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B362928993D8400F01FD1 /* FileCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,10 +264,14 @@
 				EC8B361428981D1F00F01FD1 /* UIImageView+Nuke.swift in Sources */,
 				EC8B36162898263700F01FD1 /* NetworkService.swift in Sources */,
 				EC8B35F32896B51E00F01FD1 /* GistListViewController.swift in Sources */,
+				EC8B362A28993D8400F01FD1 /* FileCollectionViewCell.swift in Sources */,
 				EC8B35EF2896B51E00F01FD1 /* AppDelegate.swift in Sources */,
 				EC8B35F12896B51E00F01FD1 /* SceneDelegate.swift in Sources */,
 				EC8B360A2897EC5500F01FD1 /* EmptyCollectionViewCell.swift in Sources */,
+				EC8B362C28993EE800F01FD1 /* GistCardPresenter.swift in Sources */,
+				EC8B36242899363F00F01FD1 /* GistCardViewController.swift in Sources */,
 				EC8B362128992DC100F01FD1 /* URL+StaticString.swift in Sources */,
+				EC8B362628993CD400F01FD1 /* FileListItem.swift in Sources */,
 				EC8B361828982C7400F01FD1 /* GistListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

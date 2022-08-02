@@ -9,4 +9,8 @@ import UIKit
 
 class EmptyCollectionViewCell: UICollectionViewCell {
 
+    override var reuseIdentifier: String? {
+        .emptyCellReuseIdentifier
+    }
+
 }
