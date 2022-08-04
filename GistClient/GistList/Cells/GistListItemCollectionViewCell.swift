@@ -46,6 +46,8 @@ class GistListItemCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
 
+    private let separator = UIView()
+
     override var reuseIdentifier: String? {
         .gistListItemReuseIdentifier
     }
@@ -71,18 +73,25 @@ class GistListItemCollectionViewCell: UICollectionViewCell {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(dateLabel)
         stackView.addArrangedSubview(descriptionLabel)
+        contentView.addSubview(separator)
 
         thumbnailImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().offset(20)
             $0.top.equalToSuperview().offset(12)
-            $0.size.equalTo(34)
+            $0.size.equalTo(Constants.thumbnailSize)
         }
         stackView.snp.makeConstraints {
-            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(6)
-            $0.trailing.equalToSuperview()
+            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(Constants.stackViewLeadingOffset)
+            $0.trailing.equalToSuperview().offset(-20)
             $0.top.equalToSuperview().offset(12)
             $0.bottom.lessThanOrEqualToSuperview().offset(-12)
         }
+        separator.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(1 / UIScreen.main.nativeScale)
+        }
+        separator.backgroundColor = .separator
     }
 
     func configure(with gist: GistListItem) {
@@ -91,6 +100,37 @@ class GistListItemCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = gist.description
         thumbnailImageView.setImage(url: gist.userAvatarUrl)
         thumbnailImageView.layoutIfNeeded()
+        separator.isHidden = gist.isSeparatorHidden
+    }
+
+    private enum Constants {
+        static let thumbnailSize: CGFloat = 34
+        static let stackViewLeadingOffset: CGFloat = 6
     }
     
+}
+
+extension GistListItemCollectionViewCell {
+
+    static func calculateSelfSize(by content: GistListItem, insideBoundsOf collectionView: UICollectionView) -> CGSize {
+        let titleHeight = content.title.boundingRect(
+            with: CGSize(
+                width: collectionView.bounds.size.width - 40 - Constants.thumbnailSize - Constants.stackViewLeadingOffset,
+                height: .greatestFiniteMagnitude),
+            options: [],
+            context: nil)
+            .height
+        
+        let dateHeight: CGFloat = 15
+
+        if let content = content.description, !content.isEmpty {
+            let descriptionHeight: CGFloat = 15
+            let height = titleHeight + 4 + dateHeight + 4 + descriptionHeight + 24
+            return CGSize(width: collectionView.bounds.width, height: height)
+        } else {
+            let height = titleHeight + 4 + dateHeight + 24
+            return CGSize(width: collectionView.bounds.width, height: height)
+        }
+    }
+
 }

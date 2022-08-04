@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct GistListItem {
     let id: String
@@ -13,4 +14,8 @@ struct GistListItem {
     let title: NSAttributedString
     let createdAt: String
     let description: String?
+    var isSeparatorHidden: Bool = false
+
+    let associatedCellType = GistListItemCollectionViewCell.self
+
 }

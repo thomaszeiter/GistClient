@@ -12,6 +12,7 @@ protocol GistListInput: AnyObject {
 
     func getGitListItem()
     func didTapGist(_ gist: GistListItem)
+    func loadNextPage()
 
 }
 
@@ -20,6 +21,7 @@ class GistListPresenter {
     private let networkService = NetworkService()
     private weak var viewController: GistListViewControllerOutput?
     private var gists: [Gist] = []
+    private var currentNumberOfPage = 1
 
     init(viewController: GistListViewControllerOutput) {
         self.viewController = viewController
@@ -42,9 +44,9 @@ class GistListPresenter {
             let gistName = NSAttributedString(
                 string: gist.title,
                 attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-            let mutableAttrString = NSMutableAttributedString(attributedString: ownerName)
-            mutableAttrString.append(separator)
-            mutableAttrString.append(gistName)
+            let mutableAttributedString = NSMutableAttributedString(attributedString: ownerName)
+            mutableAttributedString.append(separator)
+            mutableAttributedString.append(gistName)
 
             let date = dateFormatter.date(from: gist.createdAt) ?? Date()
             let dateFormattedString = dateFormatter.string(from: date)
@@ -53,7 +55,7 @@ class GistListPresenter {
             return GistListItem(
                 id: gist.id,
                 userAvatarUrl: gist.owner.avatarUrl,
-                title: mutableAttrString,
+                title: mutableAttributedString,
                 createdAt: dateString,
                 description: gist.description)
         }
@@ -64,12 +66,12 @@ extension GistListPresenter: GistListInput {
 
     func getGitListItem() {
         viewController?.updateState(.loading)
-        networkService.getGists { [weak self] result in
+        networkService.getGists(url: Constants.publicGistsUrl) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let gists):
                 self.viewController?.updateState(.normal)
-                self.viewController?.updateItems(self.makeGistListItems(from: gists))
+                self.viewController?.getItems(self.makeGistListItems(from: gists))
                 self.gists = gists
             case .failure(let error):
                 self.viewController?.updateState(.error(message: error.localizedDescription))
@@ -83,6 +85,34 @@ extension GistListPresenter: GistListInput {
         let gistCardPresenter = GistCardPresenter(viewController: gistCardViewController, files: gist.files)
         gistCardViewController.presenter = gistCardPresenter
         viewController?.present(gistCardViewController, animated: true)
+    }
+
+    func loadNextPage() {
+        let newPage = currentNumberOfPage + 1
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.github.com"
+        urlComponents.path = "/gists/public"
+        let pageQueryItem = URLQueryItem(name: "page", value: newPage.description)
+        urlComponents.queryItems = [pageQueryItem]
+
+        guard let url = urlComponents.url else {
+            viewController?.updateState(.error(message: "Wrong request"))
+            return
+        }
+
+        networkService.getGists(url: url) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let gists):
+                self.viewController?.updateState(.normal)
+                self.viewController?.updateItems(self.makeGistListItems(from: gists))
+                self.gists = gists
+                self.currentNumberOfPage += 1
+            case .failure(let error):
+                self.viewController?.updateState(.error(message: error.localizedDescription))
+            }
+        }
     }
 
 }

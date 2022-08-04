@@ -9,11 +9,9 @@ import Foundation
 
 class NetworkService {
 
-    private let url = URL(staticString: "https://api.github.com/gists/public")
-
-    func getGists(completion: @escaping (Result<[Gist], Error>) -> Void) {
+    func getGists(url: URL, completion: @escaping (Result<[Gist], Error>) -> Void) {
         DispatchQueue.global().async {
-            let task = URLSession.shared.dataTask(with: self.url) { (data, _, error) in
+            let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
                 if let error = error {
                     DispatchQueue.main.async {
                         completion(.failure(error))

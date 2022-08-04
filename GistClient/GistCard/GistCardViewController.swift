@@ -17,8 +17,8 @@ protocol GistCardViewControllerOutput: AnyObject {
 
 class GistCardViewController: UIViewController {
 
-    private var files: [FileListItem] = []
     var presenter: GistCardInput?
+    private var files: [FileListItem] = []
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
