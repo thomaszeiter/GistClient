@@ -16,19 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = makeInitialScreen()
+        let gistListAssembly = GistListAssembly()
+        window?.rootViewController = gistListAssembly.buildGistListModule()
         window?.makeKeyAndVisible()
-    }
-
-    private func makeInitialScreen() -> UIViewController {
-        let navigationController = UINavigationController()
-
-        let viewController = GistListViewController()
-        let presenter = GistListPresenter(viewController: viewController)
-        viewController.presenter = presenter
-
-        navigationController.pushViewController(viewController, animated: false)
-        return navigationController
     }
 
 }

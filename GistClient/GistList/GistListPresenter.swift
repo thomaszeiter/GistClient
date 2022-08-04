@@ -8,23 +8,33 @@
 import Foundation
 import UIKit
 
-protocol GistListInput: AnyObject {
+protocol GistListInteractorOutput: AnyObject {
 
-    func getGitListItem()
-    func didTapGist(_ gist: GistListItem)
-    func loadNextPage()
+    func didFinishLoadingGistsWithSuccess(_ gists: [Gist])
+    func didFinishLoadingNewPageOfGistsWithSuccess(_ gists: [Gist])
+    func didFinishLoadingGistsWithFailure(_ error: Error)
 
+}
+
+protocol GistListInteractorInput: AnyObject {
+
+    func loadGists(url: URL)
+    func loadNewPageOfGists(url: URL)
+    
 }
 
 class GistListPresenter {
 
-    private let networkService = NetworkService()
-    private weak var viewController: GistListViewControllerOutput?
+    private let interactor: GistListInteractorInput
+    private weak var viewController: GistListViewControllerInput?
     private var gists: [Gist] = []
     private var currentNumberOfPage = 1
+    private var isPageRefreshing = false
 
-    init(viewController: GistListViewControllerOutput) {
+    init(viewController: GistListViewControllerInput,
+         interactor: GistListInteractorInput) {
         self.viewController = viewController
+        self.interactor = interactor
     }
 
     private let dateFormatter: DateFormatter = {
@@ -60,34 +70,13 @@ class GistListPresenter {
                 description: gist.description)
         }
     }
-}
 
-extension GistListPresenter: GistListInput {
-
-    func getGitListItem() {
+    private func getGitListItems() {
         viewController?.updateState(.loading)
-        networkService.getGists(url: Constants.publicGistsUrl) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let gists):
-                self.viewController?.updateState(.normal)
-                self.viewController?.getItems(self.makeGistListItems(from: gists))
-                self.gists = gists
-            case .failure(let error):
-                self.viewController?.updateState(.error(message: error.localizedDescription))
-            }
-        }
+        interactor.loadGists(url: Constants.publicGistsUrl)
     }
 
-    func didTapGist(_ gist: GistListItem) {
-        guard let gist = gists.first(where: { $0.id == gist.id }) else { return }
-        let gistCardViewController = GistCardViewController()
-        let gistCardPresenter = GistCardPresenter(viewController: gistCardViewController, files: gist.files)
-        gistCardViewController.presenter = gistCardPresenter
-        viewController?.present(gistCardViewController, animated: true)
-    }
-
-    func loadNextPage() {
+    private func loadNextPage() {
         let newPage = currentNumberOfPage + 1
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -100,19 +89,64 @@ extension GistListPresenter: GistListInput {
             viewController?.updateState(.error(message: "Wrong request"))
             return
         }
+        interactor.loadNewPageOfGists(url: url)
+    }
 
-        networkService.getGists(url: url) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let gists):
-                self.viewController?.updateState(.normal)
-                self.viewController?.updateItems(self.makeGistListItems(from: gists))
-                self.gists = gists
-                self.currentNumberOfPage += 1
-            case .failure(let error):
-                self.viewController?.updateState(.error(message: error.localizedDescription))
-            }
+    private func openGist(_ gist: Gist) {
+        let gistCardViewController = GistCardViewController()
+        let gistCardPresenter = GistCardPresenter(viewController: gistCardViewController, files: gist.files)
+        gistCardViewController.presenter = gistCardPresenter
+        viewController?.present(gistCardViewController, animated: true)
+    }
+
+}
+
+extension GistListPresenter: GistListViewControllerOutput {
+
+    func didScrollAtLastCell() {
+        if !isPageRefreshing {
+            isPageRefreshing = true
+            loadNextPage()
         }
+    }
+
+    func didTapAtTryAgainButton() {
+        getGitListItems()
+    }
+
+    func didPullToRefresh() {
+        getGitListItems()
+    }
+
+    func viewDidLoad() {
+        getGitListItems()
+    }
+
+    func didSelectCell(at indexPath: IndexPath) {
+        let gist = gists[indexPath.item]
+        openGist(gist)
+    }
+
+}
+
+extension GistListPresenter: GistListInteractorOutput {
+    
+    func didFinishLoadingGistsWithSuccess(_ gists: [Gist]) {
+        viewController?.updateState(.normal)
+        viewController?.getItems(self.makeGistListItems(from: gists))
+        self.gists = gists
+    }
+
+    func didFinishLoadingNewPageOfGistsWithSuccess(_ gists: [Gist]) {
+        viewController?.updateState(.normal)
+        viewController?.updateItems(self.makeGistListItems(from: gists))
+        self.gists.append(contentsOf: gists)
+        currentNumberOfPage += 1
+        isPageRefreshing = false
+    }
+
+    func didFinishLoadingGistsWithFailure(_ error: Error) {
+        viewController?.updateState(.error(message: error.localizedDescription))
     }
 
 }

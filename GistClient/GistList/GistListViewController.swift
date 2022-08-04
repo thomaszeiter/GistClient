@@ -8,25 +8,32 @@
 import UIKit
 import SnapKit
 
-protocol GistListViewControllerOutput: AnyObject {
-
+protocol GistListViewControllerInput: AnyObject {
     func getItems(_ items: [GistListItem])
     func updateItems(_ items: [GistListItem])
     func updateState(_ state: ListDataState)
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool)
 }
 
+protocol GistListViewControllerOutput: AnyObject {
+
+    func didSelectCell(at indexPath: IndexPath)
+    func didScrollAtLastCell()
+    func didTapAtTryAgainButton()
+    func didPullToRefresh()
+    func viewDidLoad()
+
+}
+
 class GistListViewController: UIViewController {
 
-    var presenter: GistListInput?
+    var presenter: GistListViewControllerOutput?
     private var gists: [GistListItem] = []
-    private var isPageRefreshing = false
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.sectionFootersPinToVisibleBounds = true
         let collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: layout)
@@ -76,11 +83,11 @@ class GistListViewController: UIViewController {
 
         title = "Gists List"
 
-        presenter?.getGitListItem()
+        presenter?.viewDidLoad()
     }
 
     @objc func didPullToRefresh() {
-        presenter?.getGitListItem()
+        presenter?.didPullToRefresh()
     }
 
     private func presentErrorAlert(_ message: String) {
@@ -90,7 +97,7 @@ class GistListViewController: UIViewController {
             preferredStyle: .alert)
 
         let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
-            self.presenter?.getGitListItem()
+            self.presenter?.didTapAtTryAgainButton()
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
@@ -141,10 +148,7 @@ extension GistListViewController: UICollectionViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if(collectionView.contentOffset.y >= (collectionView.contentSize.height - collectionView.bounds.size.height)) {
             startFooterRefresh()
-            if !isPageRefreshing {
-                isPageRefreshing = true
-                presenter?.loadNextPage()
-            }
+            presenter?.didScrollAtLastCell()
         }
     }
 
@@ -179,13 +183,12 @@ extension GistListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        let selectedGist = gists[indexPath.item]
-        presenter?.didTapGist(selectedGist)
+        presenter?.didSelectCell(at: indexPath)
     }
 
 }
 
-extension GistListViewController: GistListViewControllerOutput {
+extension GistListViewController: GistListViewControllerInput {
 
     func getItems(_ items: [GistListItem]) {
         gists = items
@@ -203,7 +206,6 @@ extension GistListViewController: GistListViewControllerOutput {
             globalActivityIndicatorView.isHidden = true
             refreshControl.endRefreshing()
             stopFooterRefresh()
-            isPageRefreshing = false
         case .loading:
             globalActivityIndicatorView.isHidden = false
             globalActivityIndicatorView.startAnimating()

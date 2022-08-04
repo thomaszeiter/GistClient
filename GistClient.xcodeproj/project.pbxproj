@@ -29,6 +29,8 @@
 		EC8B362C28993EE800F01FD1 /* GistCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362B28993EE800F01FD1 /* GistCardPresenter.swift */; };
 		EC8B362F28997D4100F01FD1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362E28997D4100F01FD1 /* Constants.swift */; };
 		EC8B3631289AAF5B00F01FD1 /* RefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B3630289AAF5B00F01FD1 /* RefreshFooterView.swift */; };
+		EC8B3633289BC8DE00F01FD1 /* GistListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B3632289BC8DD00F01FD1 /* GistListInteractor.swift */; };
+		EC8B3635289BD3C600F01FD1 /* GistListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B3634289BD3C600F01FD1 /* GistListAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		EC8B362B28993EE800F01FD1 /* GistCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCardPresenter.swift; sourceTree = "<group>"; };
 		EC8B362E28997D4100F01FD1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EC8B3630289AAF5B00F01FD1 /* RefreshFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFooterView.swift; sourceTree = "<group>"; };
+		EC8B3632289BC8DD00F01FD1 /* GistListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListInteractor.swift; sourceTree = "<group>"; };
+		EC8B3634289BD3C600F01FD1 /* GistListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				EC8B36052897EB7F00F01FD1 /* Cells */,
 				EC8B35F22896B51E00F01FD1 /* GistListViewController.swift */,
 				EC8B361728982C7400F01FD1 /* GistListPresenter.swift */,
+				EC8B3632289BC8DD00F01FD1 /* GistListInteractor.swift */,
+				EC8B3634289BD3C600F01FD1 /* GistListAssembly.swift */,
 			);
 			path = GistList;
 			sourceTree = "<group>";
@@ -286,9 +292,11 @@
 				EC8B362C28993EE800F01FD1 /* GistCardPresenter.swift in Sources */,
 				EC8B36242899363F00F01FD1 /* GistCardViewController.swift in Sources */,
 				EC8B362128992DC100F01FD1 /* URL+StaticString.swift in Sources */,
+				EC8B3633289BC8DE00F01FD1 /* GistListInteractor.swift in Sources */,
 				EC8B3631289AAF5B00F01FD1 /* RefreshFooterView.swift in Sources */,
 				EC8B362628993CD400F01FD1 /* FileListItem.swift in Sources */,
 				EC8B361828982C7400F01FD1 /* GistListPresenter.swift in Sources */,
+				EC8B3635289BD3C600F01FD1 /* GistListAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
