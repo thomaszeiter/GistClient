@@ -1,0 +1,22 @@
+{
+  "name": "Core",
+  "version": "0.1.0",
+  "summary": "A short description of Core.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/thomaszeiter/Core",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "thomaszeiter": "thomaszeitertz@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/thomaszeiter/Core.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Core/Classes/**/*"
+}

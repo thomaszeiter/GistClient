@@ -1,0 +1,6 @@
+framework module DomainServices {
+  umbrella header "DomainServices-umbrella.h"
+
+  export *
+  module * { export * }
+}

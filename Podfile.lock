@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (5.4.4)
+  - Core (0.1.0):
+    - Alamofire
+    - Highlightr
+    - SnapKit
+  - DomainServices (0.1.0):
+    - Core
+  - Highlightr (2.1.0)
+  - Nuke (10.4.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - Core (from `Core`)
+  - DomainServices (from `DomainServices`)
+  - Nuke
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Highlightr
+    - Nuke
+    - SnapKit
+
+EXTERNAL SOURCES:
+  Core:
+    :path: Core
+  DomainServices:
+    :path: DomainServices
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  Core: 85da36e82934b7a8df9441dca8f933cfd8caa29a
+  DomainServices: e0251123f590dec2434e6688fbda11073838b8d8
+  Highlightr: 595f3e100737c8de41113385da8bd0b5b65212c6
+  Nuke: fa2d83b3ee99bb88eccc62ab6c7590e207b50096
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 3faed3b417e1084ee28bbbf9b2d8ef73a833d9ce
+
+COCOAPODS: 1.11.3

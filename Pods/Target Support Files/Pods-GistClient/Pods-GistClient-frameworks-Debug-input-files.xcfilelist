@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-GistClient/Pods-GistClient-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Core/Core.framework
+${BUILT_PRODUCTS_DIR}/DomainServices/DomainServices.framework
+${BUILT_PRODUCTS_DIR}/Highlightr/Highlightr.framework
+${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

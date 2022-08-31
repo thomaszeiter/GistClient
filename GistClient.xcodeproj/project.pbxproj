@@ -1,0 +1,664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		249E25896A7E77D671F87463 /* Pods_GistClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D98B50C9F2DE7B9FE2F47F9 /* Pods_GistClient.framework */; };
+		EC55CFDB28A668310015085C /* GistCardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFDA28A668310015085C /* GistCardAssembly.swift */; };
+		EC55CFDD28A668730015085C /* GistCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFDC28A668730015085C /* GistCardPresenter.swift */; };
+		EC55CFDF28A668810015085C /* GistCardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFDE28A668810015085C /* GistCardInteractor.swift */; };
+		EC55CFE128A668930015085C /* GistCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFE028A668930015085C /* GistCardViewController.swift */; };
+		EC55CFE328A68F720015085C /* FilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFE228A68F720015085C /* FilesListViewController.swift */; };
+		EC55CFE528A68F920015085C /* FilesListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFE428A68F920015085C /* FilesListAssembly.swift */; };
+		EC55CFE728A692020015085C /* FilesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFE628A692020015085C /* FilesListPresenter.swift */; };
+		EC55CFEA28A69CF60015085C /* FileListViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFE928A69CF60015085C /* FileListViewObject.swift */; };
+		EC55CFEF28A6A28A0015085C /* FileListItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC55CFEE28A6A28A0015085C /* FileListItemCollectionViewCell.swift */; };
+		EC73012E28BFAEB7002C9105 /* FileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC73012D28BFAEB7002C9105 /* FileContent.swift */; };
+		EC8B35EF2896B51E00F01FD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B35EE2896B51E00F01FD1 /* AppDelegate.swift */; };
+		EC8B35F12896B51E00F01FD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B35F02896B51E00F01FD1 /* SceneDelegate.swift */; };
+		EC8B35F32896B51E00F01FD1 /* GistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B35F22896B51E00F01FD1 /* GistListViewController.swift */; };
+		EC8B35F82896B52200F01FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8B35F72896B52200F01FD1 /* Assets.xcassets */; };
+		EC8B35FB2896B52200F01FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8B35F92896B52200F01FD1 /* LaunchScreen.storyboard */; };
+		EC8B36032897EB0900F01FD1 /* GistListItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B36022897EB0900F01FD1 /* GistListItemCollectionViewCell.swift */; };
+		EC8B360A2897EC5500F01FD1 /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B36092897EC5500F01FD1 /* EmptyCollectionViewCell.swift */; };
+		EC8B360F2898198900F01FD1 /* GistListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B360E2898198900F01FD1 /* GistListItem.swift */; };
+		EC8B361428981D1F00F01FD1 /* UIImageView+Nuke.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B361328981D1F00F01FD1 /* UIImageView+Nuke.swift */; };
+		EC8B361828982C7400F01FD1 /* GistListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B361728982C7400F01FD1 /* GistListPresenter.swift */; };
+		EC8B361A2898348A00F01FD1 /* ListDataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B36192898348A00F01FD1 /* ListDataState.swift */; };
+		EC8B36242899363F00F01FD1 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B36232899363F00F01FD1 /* FileViewController.swift */; };
+		EC8B362628993CD400F01FD1 /* FileViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362528993CD400F01FD1 /* FileViewObject.swift */; };
+		EC8B362A28993D8400F01FD1 /* FileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362928993D8400F01FD1 /* FileCollectionViewCell.swift */; };
+		EC8B362C28993EE800F01FD1 /* FilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B362B28993EE800F01FD1 /* FilePresenter.swift */; };
+		EC8B3631289AAF5B00F01FD1 /* RefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B3630289AAF5B00F01FD1 /* RefreshFooterView.swift */; };
+		EC8B3633289BC8DE00F01FD1 /* GistListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B3632289BC8DD00F01FD1 /* GistListInteractor.swift */; };
+		EC8B3635289BD3C600F01FD1 /* GistListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B3634289BD3C600F01FD1 /* GistListAssembly.swift */; };
+		EC8B363F289C105A00F01FD1 /* FileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8B363E289C105A00F01FD1 /* FileInteractor.swift */; };
+		EC9BDC8E28A1236D00282092 /* FileAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9BDC8D28A1236D00282092 /* FileAssembly.swift */; };
+		EC9BDC9028A12CAE00282092 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9BDC8F28A12CAE00282092 /* AppCoordinator.swift */; };
+		EC9BDC9228A1415E00282092 /* AppDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9BDC9128A1415E00282092 /* AppDependencyResolver.swift */; };
+		EC9BDC9B28A2AA6900282092 /* EmptyCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9BDC9A28A2AA6900282092 /* EmptyCollectionReusableView.swift */; };
+		EC9BDC9D28A2AC0400282092 /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9BDC9C28A2AC0400282092 /* UIViewController+ErrorAlert.swift */; };
+		EC9BDCA228A5237C00282092 /* UICollectionView+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9BDCA128A5237C00282092 /* UICollectionView+Header.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D98B50C9F2DE7B9FE2F47F9 /* Pods_GistClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98F08E18EBED21BEEC839804 /* Pods-GistClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistClient.debug.xcconfig"; path = "Target Support Files/Pods-GistClient/Pods-GistClient.debug.xcconfig"; sourceTree = "<group>"; };
+		EC55CFDA28A668310015085C /* GistCardAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCardAssembly.swift; sourceTree = "<group>"; };
+		EC55CFDC28A668730015085C /* GistCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCardPresenter.swift; sourceTree = "<group>"; };
+		EC55CFDE28A668810015085C /* GistCardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCardInteractor.swift; sourceTree = "<group>"; };
+		EC55CFE028A668930015085C /* GistCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCardViewController.swift; sourceTree = "<group>"; };
+		EC55CFE228A68F720015085C /* FilesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesListViewController.swift; sourceTree = "<group>"; };
+		EC55CFE428A68F920015085C /* FilesListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesListAssembly.swift; sourceTree = "<group>"; };
+		EC55CFE628A692020015085C /* FilesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesListPresenter.swift; sourceTree = "<group>"; };
+		EC55CFE928A69CF60015085C /* FileListViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewObject.swift; sourceTree = "<group>"; };
+		EC55CFEE28A6A28A0015085C /* FileListItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC73012D28BFAEB7002C9105 /* FileContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileContent.swift; sourceTree = "<group>"; };
+		EC8B35EB2896B51E00F01FD1 /* GistClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC8B35EE2896B51E00F01FD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC8B35F02896B51E00F01FD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EC8B35F22896B51E00F01FD1 /* GistListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewController.swift; sourceTree = "<group>"; };
+		EC8B35F72896B52200F01FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC8B35FA2896B52200F01FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC8B35FC2896B52200F01FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC8B36022897EB0900F01FD1 /* GistListItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC8B36092897EC5500F01FD1 /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC8B360E2898198900F01FD1 /* GistListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListItem.swift; sourceTree = "<group>"; };
+		EC8B361328981D1F00F01FD1 /* UIImageView+Nuke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Nuke.swift"; sourceTree = "<group>"; };
+		EC8B361728982C7400F01FD1 /* GistListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListPresenter.swift; sourceTree = "<group>"; };
+		EC8B36192898348A00F01FD1 /* ListDataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataState.swift; sourceTree = "<group>"; };
+		EC8B36232899363F00F01FD1 /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
+		EC8B362528993CD400F01FD1 /* FileViewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewObject.swift; sourceTree = "<group>"; };
+		EC8B362928993D8400F01FD1 /* FileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC8B362B28993EE800F01FD1 /* FilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePresenter.swift; sourceTree = "<group>"; };
+		EC8B3630289AAF5B00F01FD1 /* RefreshFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFooterView.swift; sourceTree = "<group>"; };
+		EC8B3632289BC8DD00F01FD1 /* GistListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListInteractor.swift; sourceTree = "<group>"; };
+		EC8B3634289BD3C600F01FD1 /* GistListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListAssembly.swift; sourceTree = "<group>"; };
+		EC8B363E289C105A00F01FD1 /* FileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInteractor.swift; sourceTree = "<group>"; };
+		EC9BDC8D28A1236D00282092 /* FileAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAssembly.swift; sourceTree = "<group>"; };
+		EC9BDC8F28A12CAE00282092 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		EC9BDC9128A1415E00282092 /* AppDependencyResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyResolver.swift; sourceTree = "<group>"; };
+		EC9BDC9A28A2AA6900282092 /* EmptyCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionReusableView.swift; sourceTree = "<group>"; };
+		EC9BDC9C28A2AC0400282092 /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
+		EC9BDCA128A5237C00282092 /* UICollectionView+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Header.swift"; sourceTree = "<group>"; };
+		F87F3F8EE50E07F3FEA5DCC7 /* Pods-GistClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistClient.release.xcconfig"; path = "Target Support Files/Pods-GistClient/Pods-GistClient.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC8B35E82896B51E00F01FD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				249E25896A7E77D671F87463 /* Pods_GistClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4ED20C95A9BD4C7F3E242209 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98F08E18EBED21BEEC839804 /* Pods-GistClient.debug.xcconfig */,
+				F87F3F8EE50E07F3FEA5DCC7 /* Pods-GistClient.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8453E291264E86B4B22209F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D98B50C9F2DE7B9FE2F47F9 /* Pods_GistClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC55CFD828A667520015085C /* GistCard */ = {
+			isa = PBXGroup;
+			children = (
+				EC55CFDA28A668310015085C /* GistCardAssembly.swift */,
+				EC55CFDE28A668810015085C /* GistCardInteractor.swift */,
+				EC55CFDC28A668730015085C /* GistCardPresenter.swift */,
+				EC55CFE028A668930015085C /* GistCardViewController.swift */,
+			);
+			path = GistCard;
+			sourceTree = "<group>";
+		};
+		EC55CFD928A667650015085C /* FilesList */ = {
+			isa = PBXGroup;
+			children = (
+				EC55CFED28A6A2610015085C /* Cells */,
+				EC55CFE828A693E20015085C /* ViewObjects */,
+				EC55CFE428A68F920015085C /* FilesListAssembly.swift */,
+				EC55CFE628A692020015085C /* FilesListPresenter.swift */,
+				EC55CFE228A68F720015085C /* FilesListViewController.swift */,
+			);
+			path = FilesList;
+			sourceTree = "<group>";
+		};
+		EC55CFE828A693E20015085C /* ViewObjects */ = {
+			isa = PBXGroup;
+			children = (
+				EC73012D28BFAEB7002C9105 /* FileContent.swift */,
+				EC55CFE928A69CF60015085C /* FileListViewObject.swift */,
+			);
+			path = ViewObjects;
+			sourceTree = "<group>";
+		};
+		EC55CFED28A6A2610015085C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC55CFEE28A6A28A0015085C /* FileListItemCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EC8B35E22896B51E00F01FD1 = {
+			isa = PBXGroup;
+			children = (
+				EC8B35ED2896B51E00F01FD1 /* GistClient */,
+				EC8B35EC2896B51E00F01FD1 /* Products */,
+				4ED20C95A9BD4C7F3E242209 /* Pods */,
+				8453E291264E86B4B22209F5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EC8B35EC2896B51E00F01FD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B35EB2896B51E00F01FD1 /* GistClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC8B35ED2896B51E00F01FD1 /* GistClient */ = {
+			isa = PBXGroup;
+			children = (
+				EC9BDC8F28A12CAE00282092 /* AppCoordinator.swift */,
+				EC8B35EE2896B51E00F01FD1 /* AppDelegate.swift */,
+				EC9BDC9128A1415E00282092 /* AppDependencyResolver.swift */,
+				EC8B35F02896B51E00F01FD1 /* SceneDelegate.swift */,
+				EC8B361D2899297400F01FD1 /* Extentions */,
+				EC8B36222899361E00F01FD1 /* File */,
+				EC55CFD828A667520015085C /* GistCard */,
+				EC55CFD928A667650015085C /* FilesList */,
+				EC8B36042897EB5F00F01FD1 /* GistList */,
+				EC8B361F28992C9100F01FD1 /* SupportingFiles */,
+			);
+			path = GistClient;
+			sourceTree = "<group>";
+		};
+		EC8B36042897EB5F00F01FD1 /* GistList */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B3634289BD3C600F01FD1 /* GistListAssembly.swift */,
+				EC8B3632289BC8DD00F01FD1 /* GistListInteractor.swift */,
+				EC8B361728982C7400F01FD1 /* GistListPresenter.swift */,
+				EC8B35F22896B51E00F01FD1 /* GistListViewController.swift */,
+				EC8B36052897EB7F00F01FD1 /* Cells */,
+				EC8B36062897EB8900F01FD1 /* Models */,
+			);
+			path = GistList;
+			sourceTree = "<group>";
+		};
+		EC8B36052897EB7F00F01FD1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B36022897EB0900F01FD1 /* GistListItemCollectionViewCell.swift */,
+				EC8B36092897EC5500F01FD1 /* EmptyCollectionViewCell.swift */,
+				EC8B3630289AAF5B00F01FD1 /* RefreshFooterView.swift */,
+				EC9BDC9A28A2AA6900282092 /* EmptyCollectionReusableView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		EC8B36062897EB8900F01FD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B360E2898198900F01FD1 /* GistListItem.swift */,
+				EC8B36192898348A00F01FD1 /* ListDataState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC8B361D2899297400F01FD1 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B361328981D1F00F01FD1 /* UIImageView+Nuke.swift */,
+				EC9BDC9C28A2AC0400282092 /* UIViewController+ErrorAlert.swift */,
+				EC9BDCA128A5237C00282092 /* UICollectionView+Header.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		EC8B361F28992C9100F01FD1 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B35F72896B52200F01FD1 /* Assets.xcassets */,
+				EC8B35F92896B52200F01FD1 /* LaunchScreen.storyboard */,
+				EC8B35FC2896B52200F01FD1 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		EC8B36222899361E00F01FD1 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				EC9BDC8D28A1236D00282092 /* FileAssembly.swift */,
+				EC8B363E289C105A00F01FD1 /* FileInteractor.swift */,
+				EC8B362B28993EE800F01FD1 /* FilePresenter.swift */,
+				EC8B36232899363F00F01FD1 /* FileViewController.swift */,
+				EC8B362828993D6200F01FD1 /* Cells */,
+				EC8B362728993CD700F01FD1 /* ViewObjects */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		EC8B362728993CD700F01FD1 /* ViewObjects */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B362528993CD400F01FD1 /* FileViewObject.swift */,
+			);
+			path = ViewObjects;
+			sourceTree = "<group>";
+		};
+		EC8B362828993D6200F01FD1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC8B362928993D8400F01FD1 /* FileCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC8B35EA2896B51E00F01FD1 /* GistClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC8B35FF2896B52200F01FD1 /* Build configuration list for PBXNativeTarget "GistClient" */;
+			buildPhases = (
+				851094567989EEF2776C5952 /* [CP] Check Pods Manifest.lock */,
+				EC5C58DC28CB9A8800FBC4F6 /* SwiftLint */,
+				EC8B35E72896B51E00F01FD1 /* Sources */,
+				EC8B35E82896B51E00F01FD1 /* Frameworks */,
+				EC8B35E92896B51E00F01FD1 /* Resources */,
+				94412A3261CBE9373BD1D411 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GistClient;
+			packageProductDependencies = (
+			);
+			productName = NNN;
+			productReference = EC8B35EB2896B51E00F01FD1 /* GistClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC8B35E32896B51E00F01FD1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					EC8B35EA2896B51E00F01FD1 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = EC8B35E62896B51E00F01FD1 /* Build configuration list for PBXProject "GistClient" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC8B35E22896B51E00F01FD1;
+			packageReferences = (
+			);
+			productRefGroup = EC8B35EC2896B51E00F01FD1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC8B35EA2896B51E00F01FD1 /* GistClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC8B35E92896B51E00F01FD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC8B35FB2896B52200F01FD1 /* LaunchScreen.storyboard in Resources */,
+				EC8B35F82896B52200F01FD1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		851094567989EEF2776C5952 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GistClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94412A3261CBE9373BD1D411 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GistClient/Pods-GistClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GistClient/Pods-GistClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GistClient/Pods-GistClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC5C58DC28CB9A8800FBC4F6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC8B35E72896B51E00F01FD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC8B361A2898348A00F01FD1 /* ListDataState.swift in Sources */,
+				EC55CFE128A668930015085C /* GistCardViewController.swift in Sources */,
+				EC9BDCA228A5237C00282092 /* UICollectionView+Header.swift in Sources */,
+				EC8B360F2898198900F01FD1 /* GistListItem.swift in Sources */,
+				EC55CFEF28A6A28A0015085C /* FileListItemCollectionViewCell.swift in Sources */,
+				EC8B36032897EB0900F01FD1 /* GistListItemCollectionViewCell.swift in Sources */,
+				EC8B361428981D1F00F01FD1 /* UIImageView+Nuke.swift in Sources */,
+				EC55CFE528A68F920015085C /* FilesListAssembly.swift in Sources */,
+				EC9BDC9D28A2AC0400282092 /* UIViewController+ErrorAlert.swift in Sources */,
+				EC9BDC9B28A2AA6900282092 /* EmptyCollectionReusableView.swift in Sources */,
+				EC8B35F32896B51E00F01FD1 /* GistListViewController.swift in Sources */,
+				EC55CFEA28A69CF60015085C /* FileListViewObject.swift in Sources */,
+				EC8B362A28993D8400F01FD1 /* FileCollectionViewCell.swift in Sources */,
+				EC55CFE328A68F720015085C /* FilesListViewController.swift in Sources */,
+				EC55CFDB28A668310015085C /* GistCardAssembly.swift in Sources */,
+				EC8B35EF2896B51E00F01FD1 /* AppDelegate.swift in Sources */,
+				EC73012E28BFAEB7002C9105 /* FileContent.swift in Sources */,
+				EC8B35F12896B51E00F01FD1 /* SceneDelegate.swift in Sources */,
+				EC8B360A2897EC5500F01FD1 /* EmptyCollectionViewCell.swift in Sources */,
+				EC8B362C28993EE800F01FD1 /* FilePresenter.swift in Sources */,
+				EC8B36242899363F00F01FD1 /* FileViewController.swift in Sources */,
+				EC8B363F289C105A00F01FD1 /* FileInteractor.swift in Sources */,
+				EC9BDC9228A1415E00282092 /* AppDependencyResolver.swift in Sources */,
+				EC55CFDD28A668730015085C /* GistCardPresenter.swift in Sources */,
+				EC55CFE728A692020015085C /* FilesListPresenter.swift in Sources */,
+				EC8B3633289BC8DE00F01FD1 /* GistListInteractor.swift in Sources */,
+				EC9BDC9028A12CAE00282092 /* AppCoordinator.swift in Sources */,
+				EC9BDC8E28A1236D00282092 /* FileAssembly.swift in Sources */,
+				EC8B3631289AAF5B00F01FD1 /* RefreshFooterView.swift in Sources */,
+				EC8B362628993CD400F01FD1 /* FileViewObject.swift in Sources */,
+				EC55CFDF28A668810015085C /* GistCardInteractor.swift in Sources */,
+				EC8B361828982C7400F01FD1 /* GistListPresenter.swift in Sources */,
+				EC8B3635289BD3C600F01FD1 /* GistListAssembly.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EC8B35F92896B52200F01FD1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC8B35FA2896B52200F01FD1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC8B35FD2896B52200F01FD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC8B35FE2896B52200F01FD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC8B36002896B52200F01FD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98F08E18EBED21BEEC839804 /* Pods-GistClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38J7L5W27W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GistClient/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GistClient;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.herringbone.gistClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EC8B36012896B52200F01FD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F87F3F8EE50E07F3FEA5DCC7 /* Pods-GistClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 38J7L5W27W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GistClient/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GistClient;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.herringbone.gistClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC8B35E62896B51E00F01FD1 /* Build configuration list for PBXProject "GistClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC8B35FD2896B52200F01FD1 /* Debug */,
+				EC8B35FE2896B52200F01FD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC8B35FF2896B52200F01FD1 /* Build configuration list for PBXNativeTarget "GistClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC8B36002896B52200F01FD1 /* Debug */,
+				EC8B36012896B52200F01FD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC8B35E32896B51E00F01FD1 /* Project object */;
+}
