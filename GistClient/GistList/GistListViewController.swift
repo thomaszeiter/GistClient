@@ -204,8 +204,12 @@ extension GistListViewController: GistListViewControllerInput {
     }
 
     func updateItems(_ items: [GistListItem]) {
-        gists.append(contentsOf: items)
-        collectionView.reloadData()
+        let indexPathsToInsert = (gists.count..<(gists.count + items.count))
+            .map { IndexPath(item: $0, section: 0) }
+        collectionView.performBatchUpdates {
+            gists.append(contentsOf: items)
+            collectionView.insertItems(at: indexPathsToInsert)
+        }
     }
 
     func updateState(_ state: ListDataState) {
